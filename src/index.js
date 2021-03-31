@@ -36,7 +36,7 @@ function render() {
             labels: data.vaccinesPerDay.map(((value, index) => startDate.addDays(index).toLocaleDateString("de"))),
             datasets: [{
                 data: data.vaccinesPerDay,
-                label: 'Impfungen pro tag',
+                label: 'Impfungen am tag',
                 borderColor: 'rgba(234,191,191,0.45)',
                 backgroundColor: '#EABFBF72',
                 fill: true
@@ -76,7 +76,7 @@ function render() {
                 {
                     data: data.vaccinesPerDay.map(value => sufficientVaccinationNumber),
                     borderColor: 'rgba(191,231,231,0.53)',
-                    label: 'Herendimmunität erreicht',
+                    label: 'Herendimmunität',
                     fill: false
                 }]
         },
