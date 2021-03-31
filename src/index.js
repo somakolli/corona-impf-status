@@ -10,7 +10,7 @@ const vaccinesPerDay = data.vaccinesPerDay;
 const population = data.population;
 const accumulator = (acc, current) => acc + current;
 const totalVaccines = vaccinesPerDay.reduce(accumulator);
-const percentageOfPeopleVaccinated = population / totalVaccines
+const percentageOfPeopleVaccinated = totalVaccines / population
 const sevenDayTotal = vaccinesPerDay.slice(vaccinesPerDay.length - 7, vaccinesPerDay.length).reduce(accumulator)
 const sevenDayAverage = sevenDayTotal / 7
 const sufficientVaccinationNumber = population * 0.7
