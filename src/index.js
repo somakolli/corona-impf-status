@@ -88,6 +88,7 @@ const cumulativeContext = document.getElementById('cumulative-chart')
 
 const totalChart = new Chart(cumulativeContext, {
     type: 'line',
+    responsive: true,
     data: {
         labels: data.vaccinesPerDay.map(((value, index) => startDate.addDays(index).toLocaleDateString("de"))),
         datasets: [{
