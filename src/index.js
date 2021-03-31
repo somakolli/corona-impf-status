@@ -58,7 +58,6 @@ function renderTemplate(templateName, targetId, object) {
         .then((response) => response.text())
         .then((template) => {
             var rendered = Mustache.render(template, object);
-            console.log(rendered)
             document.getElementById(targetId).innerHTML = rendered;
         });
 }
