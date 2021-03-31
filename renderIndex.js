@@ -23,6 +23,8 @@ const daysUntilSecondVaccinationsReached = daysUntilRequiredVaccinationsReached 
 const dateFirsVaccinationsReached = new Date(Date.now()).addDays(daysUntilRequiredVaccinationsReached).toLocaleDateString("de")
 const dateSecondVaccinationsReached = new Date(Date.now()).addDays(daysUntilSecondVaccinationsReached).toLocaleDateString("de")
 
+
+
 const introView = {
     sevenDayAverage: Math.round(sevenDayAverage).toLocaleString("de"),
     daysUntilSecondVaccinationsReached: Math.floor(daysUntilSecondVaccinationsReached),

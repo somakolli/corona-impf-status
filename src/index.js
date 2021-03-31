@@ -54,7 +54,8 @@ const vaccinesChart = new Chart(context, {
             legend: {
                 position: 'bottom'
             }
-        }
+        },
+        locale: 'de'
     }
 })
 const cumulativeContext = document.getElementById('cumulative-chart')
@@ -85,6 +86,7 @@ const totalChart = new Chart(cumulativeContext, {
             legend: {
                 position: 'bottom'
             }
-        }
+        },
+        locale: 'de'
     }
 })
