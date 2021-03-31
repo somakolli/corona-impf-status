@@ -1,6 +1,12 @@
 import data from './data.js';
-import Mustache from 'mustache';
-import Chart from 'chart.js';
+import Mustache  from 'mustache';
+import {
+    Chart,
+    LineController,
+    CategoryScale,
+    LinearScale,
+    PointElement, LineElement, Filler, Title, Tooltip, Legend
+} from 'chart.js';
 import footer from '../templates/footer.txt'
 import intro from '../templates/intro.txt'
 
@@ -60,26 +66,35 @@ const getSevenDayAverage = (value, index, array) => {
 const accumUntil = (value, index, array) => {
     return array.slice(0, index+1).reduce(accumulator)
 }
+Chart.register(LineController, CategoryScale, LinearScale, PointElement, LineElement, Filler, Title, Tooltip, Legend);
 
 var context = document.getElementById('chart');
 const vaccinesChart = new Chart(context, {
     type: 'line',
-    responsive: 'true',
+    responsive: true,
     data: {
         labels: data.vaccinesPerDay.map(((value, index) => startDate.addDays(index).toLocaleDateString("de"))),
         datasets: [{
             data: data.vaccinesPerDay,
             label: 'Impfungen pro tag',
             borderColor: 'rgba(234,191,191,0.45)',
-            backgroundColor: '#EABFBF72'
+            backgroundColor: '#EABFBF72',
+            fill: true
         },
         {
             data: data.vaccinesPerDay.map(getSevenDayAverage),
             label: 'Sieben-Tages-Schnitt',
             fill: false,
             borderColor: 'rgba(191,231,231,0.53)',
-            cubicInterpolationMode: 'monotone'
         }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
     }
 })
 const cumulativeContext = document.getElementById('cumulative-chart')
@@ -94,7 +109,8 @@ const totalChart = new Chart(cumulativeContext, {
             data: data.vaccinesPerDay.map(accumUntil),
             label: 'Impfdosen verabreicht',
             borderColor: 'rgba(234,191,191,0.45)',
-            backgroundColor: '#EABFBF72'
+            backgroundColor: '#EABFBF72',
+            fill: true
         },
         {
             data: data.vaccinesPerDay.map(value => sufficientVaccinationNumber),
@@ -102,5 +118,13 @@ const totalChart = new Chart(cumulativeContext, {
             label:'Herendimmunität erreicht',
             fill: false
         }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom'
+            }
+        }
     }
 })
