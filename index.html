@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Corona Impfstatus</title>
-  <script src="main.js"></script>
 </head>
 <style>
 
@@ -34,14 +33,20 @@
 </style>
 <body>
 <div class="main" id="main" style="margin: auto; max-width: 800px">
-  <h1>Impfstatus</h1>
+  <h1>Covid-19 Impfstatus</h1>
   <p id="intro">
   </p>
+  <br>
+  <h1>Erstimpfungen pro Tag</h1>
+  <canvas id="chart" width="400" height="200"></canvas>
+  <br>
+  <h1>Totale Erstimpfdosen</h1>
+  <canvas id="cumulative-chart" width="400" height="200"></canvas>
   <p id="footer" style="font-size: large; font-weight: 200">
 
   </p>
 </div>
-
+<script src="main.js"></script>
 </body>
 
 </html>

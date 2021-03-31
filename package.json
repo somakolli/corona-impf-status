@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack; cp index.html dist/index.html; cp src/*.mustache dist"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -18,9 +18,16 @@
   },
   "homepage": "https://github.com/somakolli/corona-impf-status#readme",
   "dependencies": {
-    "mustache": "^4.2.0"
+    "chart.js": "^2.9.4",
+    "mustache": "^4.2.0",
+    "mustache-loader": "^1.4.3"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^8.1.0",
+    "html-loader": "^2.1.2",
+    "module": "^1.2.5",
+    "raw-loader": "^4.0.2",
+    "require": "^2.4.20",
     "webpack": "^5.28.0",
     "webpack-cli": "^4.6.0"
   }
