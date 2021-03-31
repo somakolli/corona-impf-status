@@ -1,0 +1,27 @@
+{
+  "name": "corona-impf-status",
+  "version": "0.0.1",
+  "description": "Page to display corona vaccine progress for germany.",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack; cp index.html dist/index.html; cp src/*.mustache dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/somakolli/corona-impf-status.git"
+  },
+  "author": "Sokol Makolli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/somakolli/corona-impf-status/issues"
+  },
+  "homepage": "https://github.com/somakolli/corona-impf-status#readme",
+  "dependencies": {
+    "mustache": "^4.2.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.28.0",
+    "webpack-cli": "^4.6.0"
+  }
+}

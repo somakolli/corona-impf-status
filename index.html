@@ -3,99 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <title>Corona Impfstatus</title>
-  <script src="https://unpkg.com/vue@next"></script>
-  <script src="data.js"></script>
+  <script src="main.js"></script>
 </head>
 <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Serif+Pro:wght@200;300&display=swap');
+
     body {
         background: #EEE;
         font-family: 'Source Serif Pro', serif;
     }
+
     #main {
         text-align: left;
     }
-    #main>p {
+
+    #main > p {
         font-size: x-large;
         line-height: 2;
     }
-    #main>p>b {
+
+    #main > p > b {
         text-decoration: underline;
         white-space: nowrap;
     }
-    #main>p>span {
+
+    #main > p > span {
         white-space: nowrap;
     }
 </style>
 <body>
 <div class="main" id="main" style="margin: auto; max-width: 800px">
   <h1>Impfstatus</h1>
-  <p>
-  Nach einer aktuellen Impfrate von <b> {{ Math.round(sevenDayAverage).toLocaleString("de") }}</b>¹ Impfungen pro Tag
-    wird eine <span>Herdenimmunität²</span>
-    am <b>{{ dateSecondVaccinationsReached }}</b><b> (in {{ Math.floor(daysUntilSecondVaccinationsReached) }} Tagen)</b>
-  erreicht.
-  Es haben bislang <b>{{ totalVaccines.toLocaleString("de") }}</b> <b>({{percentageOfPeopleVaccinated.toLocaleString("de")}}%)</b>
-    Menschen in Deutschland eine Erstimpfung erhalten. Am <b>{{ dateFirsVaccinationsReached }}
-    </b> <b>(in {{ Math.floor(daysUntilRequiredVaccinationsReached).toLocaleString("de") }} Tagen)</b> werden die zur
-  Herdenimmunität benötigten Erstimpfungen verabreicht sein. Zweitimpfungen werden in der Regel zwölf Wochen darauf
-    geimpft, also dauert es zusätlich <b>{{ 12 * 7 }} Tage</b> bis die benötigte Zweitimpfzahl erreicht ist.
+  <p id="intro">
   </p>
-  <p style="font-size: large; font-weight: 200">
-    ¹Sieben-Tages-Schnitt
-    <br>
-    ²70% Durchimpfung
-    <br>
-    <br>
-    Quelle der täglichen Impfquoten: <a href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Impfquoten-Tab.html;jsessionid=37896BCE7AA1C3BA98E9ACF86116378E.internet072">RKI</a>
-    <br>
-    Stand: {{lastUpdate}}
+  <p id="footer" style="font-size: large; font-weight: 200">
+
   </p>
 </div>
-<script>
 
-    Date.prototype.addDays = function (days) {
-        var date = new Date(this.valueOf());
-        date.setDate(date.getDate() + days);
-        return date;
-    }
-
-    const vaccinesPerDay = data.vaccinesPerDay;
-    const population = data.population;
-    const accumulator = (acc, current) => acc + current;
-    const totalVaccines = vaccinesPerDay.reduce(accumulator);
-    const percentageOfPeopleVaccinated = population / totalVaccines
-    const sevenDayTotal = vaccinesPerDay.slice(vaccinesPerDay.length - 7, vaccinesPerDay.length).reduce(accumulator)
-    const sevenDayAverage = sevenDayTotal / 7
-    const sufficientVaccinationNumber = population * 0.7
-    const additionalRequiredVaccinations = sufficientVaccinationNumber - totalVaccines
-    const daysUntilRequiredVaccinationsReached = additionalRequiredVaccinations / sevenDayAverage
-    const daysUntilSecondVaccinationsReached = daysUntilRequiredVaccinationsReached + 12 * 7
-    const dateFirsVaccinationsReached = new Date(Date.now()).addDays(daysUntilRequiredVaccinationsReached).toLocaleDateString("de")
-    const dateSecondVaccinationsReached = new Date(Date.now()).addDays(daysUntilSecondVaccinationsReached).toLocaleDateString("de")
-
-    const Counter = {
-        data() {
-            return {
-                counter: 1,
-                totalVaccines,
-                sevenDayTotal,
-                sevenDayAverage,
-                percentageOfPeopleVaccinated,
-                sufficientVaccinationNumber,
-                additionalRequiredVaccinations,
-                daysUntilRequiredVaccinationsReached,
-                daysUntilSecondVaccinationsReached,
-                dateSecondVaccinationsReached,
-                dateFirsVaccinationsReached,
-                lastUpdate: data.lastUpdate
-            }
-        }
-    }
-
-    Vue.createApp(Counter).mount('#main')
-</script>
 </body>
 
 </html>

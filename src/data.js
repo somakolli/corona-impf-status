@@ -1,5 +1,5 @@
 
-data = {
+export default {
   "startDay": "27-12-2020",
   "lastUpdate": "30.03.2021",
   "population": 83157201,
