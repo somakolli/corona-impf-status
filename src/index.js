@@ -42,9 +42,8 @@ const footerView = {
 }
 
 function renderTemplate(template, targetId, object) {
-
-            var rendered = Mustache.render(template, object);
-            document.getElementById(targetId).innerHTML = rendered;
+    var rendered = Mustache.render(template, object);
+    document.getElementById(targetId).innerHTML = rendered;
 }
 
 renderTemplate(intro, 'intro', introView);
@@ -54,7 +53,7 @@ renderTemplate(footer, 'footer', footerView);
 //    .getContext('2d')
 
 const getSevenDayAverage = (value, index, array) => {
-    const start = Math.max(0, index - 7)
+    const start = Math.max(0, index - 6)
     return array.slice(start, index + 1).reduce(accumulator) / (index + 1 - start)
 }
 
@@ -74,13 +73,13 @@ const vaccinesChart = new Chart(context, {
             borderColor: 'rgba(234,191,191,0.45)',
             backgroundColor: '#EABFBF72'
         },
-            {
-                data: data.vaccinesPerDay.map(getSevenDayAverage),
-                label: 'Sieben-Tages-Schnitt',
-                fill: false,
-                borderColor: 'rgba(191,231,231,0.53)',
-                cubicInterpolationMode: 'monotone'
-            }]
+        {
+            data: data.vaccinesPerDay.map(getSevenDayAverage),
+            label: 'Sieben-Tages-Schnitt',
+            fill: false,
+            borderColor: 'rgba(191,231,231,0.53)',
+            cubicInterpolationMode: 'monotone'
+        }]
     }
 })
 const cumulativeContext = document.getElementById('cumulative-chart')
@@ -97,11 +96,11 @@ const totalChart = new Chart(cumulativeContext, {
             borderColor: 'rgba(234,191,191,0.45)',
             backgroundColor: '#EABFBF72'
         },
-            {
-                data: data.vaccinesPerDay.map(value => sufficientVaccinationNumber),
-                borderColor: 'rgba(191,231,231,0.53)',
-                label:'Herendimmunität erreicht',
-                fill: false
-            }]
+        {
+            data: data.vaccinesPerDay.map(value => sufficientVaccinationNumber),
+            borderColor: 'rgba(191,231,231,0.53)',
+            label:'Herendimmunität erreicht',
+            fill: false
+        }]
     }
 })
