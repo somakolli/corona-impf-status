@@ -2,6 +2,8 @@ import data from './src/data.js';
 import Mustache from 'mustache';
 import fs from 'fs';
 
+
+
 Date.prototype.addDays = function (days) {
     const date = new Date(this.valueOf());
     date.setDate(date.getDate() + days);
