@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "node renderIndex.js && webpack",
+    "dev": "node renderIndex.js && webpack --watch & live-server dist"
   },
   "repository": {
     "type": "git",
@@ -18,14 +19,15 @@
   },
   "homepage": "https://github.com/somakolli/corona-impf-status#readme",
   "dependencies": {
-    "chart.js": "^3.0.0-rc.6",
-    "mustache": "^4.2.0",
-    "mustache-loader": "^1.4.3"
+    "chart.js": "^3.0.0-rc.6"
   },
   "devDependencies": {
     "copy-webpack-plugin": "^8.1.0",
+    "fs": "^0.0.1-security",
     "html-loader": "^2.1.2",
+    "live-server": "^1.2.1",
     "module": "^1.2.5",
+    "mustache": "^4.2.0",
     "raw-loader": "^4.0.2",
     "require": "^2.4.20",
     "webpack": "^5.28.0",

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Corona Impfstatus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <meta name="Description" content="Informationen über die gegenwärtige Coronaimpfungen in Deutschland.
+                                    Tägliche Impfungen und wann eine Herdenimmunität erreicht ist.">
+</head>
+<style>
+
+  @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Source+Serif+Pro:wght@200;300&display=swap');
+
+  body {
+    background: #EEE;
+    font-family: 'Source Serif Pro', serif;
+  }
+
+  #main {
+    text-align: left;
+    font-size: x-large;
+  }
+
+  #main > p {
+    line-height: 2;
+  }
+
+  #main > p > b {
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+
+  #main > p > span {
+    white-space: nowrap;
+  }
+
+  a:link {
+    color: rgb(105, 123, 123);
+    font-weight: 400;
+  }
+
+  a:visited {
+    color: rgb(105, 123, 123);
+    font-weight: 500;
+  }
+
+</style>
+<body>
+<div class="main" id="main" style="margin: auto; max-width: 800px">
+  <h1>Covid-19 Impfstatus</h1>
+  <p>
+    Mit einer aktuellen Impfrate von <b>
+    {{ sevenDayAverage }}</b>¹ Impfungen pro
+    Tag
+    wird eine <span>Herdenimmunität²</span>
+    am <b>{{ dateSecondVaccinationsReached }}</b><b> (in
+    {{ daysUntilSecondVaccinationsReached }} Tagen)</b>
+    erreicht.
+    Es haben bislang <b>{{ totalVaccines }}</b>
+    <b>({{percentageOfPeopleVaccinated}}%)</b>
+    Menschen in Deutschland eine Erstimpfung erhalten. Am
+    <b>{{ dateFirsVaccinationsReached }}
+    </b> <b>(in
+    {{ daysUntilRequiredVaccinationsReached }}
+    Tagen)</b> werden die zur
+    Herdenimmunität benötigten Erstimpfungen verabreicht sein. Zweitimpfungen
+    werden in der Regel zwölf Wochen darauf
+    geimpft, also dauert es zusätlich <b>{{ twelveWeeks }} Tage</b> bis die
+    benötigte
+    Zweitimpfzahl erreicht ist.
+    <span style="font-weight: 200; font-size: medium; text-align: right">
+  <br>
+  ¹Sieben-Tages-Schnitt
+  <br>
+  ²70% Durchimpfung
+  <br>
+</span>
+  </p>
+  <br>
+  <h2>Erstimpfungen pro Tag</h2>
+  <canvas id="chart" width="400" height="200"></canvas>
+  <br>
+  <h2>Totale Erstimpfdosen</h2>
+  <canvas id="cumulative-chart" width="400" height="200"></canvas>
+  <p style="font-size: large; font-weight: 200">
+    <br>
+    Quelle der täglichen Impfquoten: <a
+    href="https://www.rki.de/DE/Content/InfAZ/N/Neuartiges_Coronavirus/Daten/Impfquoten-Tab.html;jsessionid=37896BCE7AA1C3BA98E9ACF86116378E.internet072">RKI</a>
+    <br>
+    Stand: {{lastUpdate}}
+    <br>
+    Quellcode:
+    <a href="https://github.com/somakolli/corona-impf-status">
+      Github
+    </a>
+  </p>
+
+</div>
+<script src="main.js"></script>
+
+</body>
+
+</html>

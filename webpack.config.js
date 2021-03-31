@@ -12,7 +12,6 @@ export default {
         new CopyPlugin({
             patterns: [
                 {from: "index.html", to: "."},
-                {from: "templates", to: "templates"}
             ],
         }),
     ],
