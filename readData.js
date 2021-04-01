@@ -27,6 +27,7 @@ const lastUpdate = daily.filter(value => typeof value.Datum.getMonth === 'functi
 
 data.startDate = startDate;
 data.lastUpdate = lastUpdate;
+data.population = 83985588;
 
 const stringToWrite = 'export default ' + JSON.stringify(data)
 fs.writeFile('./src/data.js', stringToWrite, (err)=> {

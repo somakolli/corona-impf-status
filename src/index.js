@@ -13,7 +13,9 @@ Date.prototype.addDays = function (days) {
     return date;
 }
 
-const startDate = new Date(Date.parse(data.startDay));
+const startDate = new Date(Date.parse(data.startDate));
+console.log(data.startDate)
+console.log(data.lastUpdate)
 const population = data.population;
 const accumulator = (acc, current) => acc + current;
 const sufficientVaccinationNumber = population * 0.7

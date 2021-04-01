@@ -10,7 +10,7 @@ Date.prototype.addDays = function (days) {
     return date;
 }
 
-const startDate = new Date(Date.parse(data.startDay));
+const startDate = new Date(Date.parse(data.startDate));
 const vaccinesPerDay = data.vaccinesPerDay;
 const population = data.population;
 const accumulator = (acc, current) => acc + current;
