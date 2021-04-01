@@ -23,10 +23,9 @@ data.secondVaccinesPerDay = daily.map(value => value.Zweitimpfung).filter(value 
 data.secondVaccinesPerDay = data.secondVaccinesPerDay.slice(0, data.secondVaccinesPerDay.length - 3)
 
 const startDate = daily[0].Datum;
-const lastUpdate = daily.filter(value => typeof value.Datum.getMonth === 'function').pop().Datum
 
 data.startDate = startDate;
-data.lastUpdate = lastUpdate;
+data.lastUpdate = new Date(Date.now());
 data.population = 83985588;
 
 const stringToWrite = 'export default ' + JSON.stringify(data)
