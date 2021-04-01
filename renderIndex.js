@@ -36,7 +36,7 @@ const introView = {
     daysUntilRequiredVaccinationsReached: Math.floor(daysUntilRequiredVaccinationsReached).toLocaleString("de"),
     dateFirsVaccinationsReached,
     twelveWeeks: 12 * 7,
-    lastUpdate: data.lastUpdate
+    lastUpdate: new Date(Date.parse(data.lastUpdate)).addDays(1).toLocaleDateString("de")
 }
 
 fs.readFile('./index.mustache', (err, index) => {
