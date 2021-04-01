@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "yarn renderIndex && webpack",
     "dev": "yarn renderIndex && webpack --watch & live-server dist",
-    "renderIndex": "cross-env NODE_ICU_DATA=node_modules/full-icu node renderIndex.js && ./readData.sh"
+    "renderIndex": "./readData.sh && cross-env NODE_ICU_DATA=node_modules/full-icu node renderIndex.js"
   },
   "repository": {
     "type": "git",

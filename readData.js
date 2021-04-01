@@ -1,6 +1,7 @@
 import XLSX from 'xlsx'
-import data from './src/data.js'
 import fs from 'fs'
+
+const data = {}
 
 const impfquoten = XLSX.readFile('data.xlsx', {cellDates: true})
 const sheet_name_list = impfquoten.SheetNames;
