@@ -47,33 +47,37 @@
 </style>
 <body>
 <div class="main" id="main" style="margin: auto; max-width: 800px">
-  <h1>Covid-19 Impfstatus</h1>
-  <p>
-    Mit einer aktuellen Impfrate von <b>
-    {{ sevenDayAverage }}</b>¹ Impfungen pro
-    Tag
-    wird eine <span>Herdenimmunität²</span>
-    am <b>{{ dateSecondVaccinationsReached }}</b><b> (in
-    {{ daysUntilSecondVaccinationsReached }} Tagen)</b>
-    erreicht.
-    Es haben bislang <b>{{ totalVaccines }}</b>
-    <b>({{percentageOfPeopleVaccinated}}%)</b>
-    Menschen in Deutschland eine Erstimpfung erhalten. Am
-    <b>{{ dateFirsVaccinationsReached }}
-    </b> <b>(in
-    {{ daysUntilRequiredVaccinationsReached }}
-    Tagen)</b> werden die zur
-    Herdenimmunität benötigten Erstimpfungen verabreicht sein. Zweitimpfungen
-    werden in der Regel zwölf Wochen darauf
-    geimpft, also dauert es zusätlich <b>{{ twelveWeeks }} Tage</b> bis die
-    benötigte
-    Zweitimpfzahl erreicht ist.
-    <span style="font-weight: 200; font-size: medium; text-align: right">
-  <br>
-  ¹Sieben-Tages-Schnitt
-  <br>
-  ²70% Durchimpfung
-  <br>
+  <header>
+    <h1>Covid-19 Impfstatus</h1>
+  </header
+  <main>
+    <p>
+      Mit einer aktuellen Impfrate von <b>
+      {{ sevenDayAverage }}</b>¹ Impfungen pro
+      Tag
+      wird eine <span>Herdenimmunität²</span>
+      am <b>{{ dateSecondVaccinationsReached }}</b><b> (in
+      {{ daysUntilSecondVaccinationsReached }} Tagen)</b>
+      erreicht.
+      Es haben bislang <b>{{ totalVaccines }}</b>
+      <b>({{percentageOfPeopleVaccinated}}%)</b>
+      Menschen in Deutschland eine Erstimpfung erhalten. Am
+      <b>{{ dateFirsVaccinationsReached }}
+      </b> <b>(in
+      {{ daysUntilRequiredVaccinationsReached }}
+      Tagen)</b> werden die zur
+      Herdenimmunität benötigten Erstimpfungen verabreicht sein. Zweitimpfungen
+      werden in der Regel zwölf Wochen darauf
+      geimpft, also dauert es zusätlich <b>{{ twelveWeeks }} Tage</b> bis die
+      benötigte
+      Zweitimpfzahl erreicht ist.
+      <span style="font-weight: 200; font-size: medium; text-align: right">
+    <br>
+    ¹Sieben-Tages-Schnitt
+    <br>
+    ²70% Durchimpfung
+    <br>
+   </main>
 </span>
   </p>
   <br>
