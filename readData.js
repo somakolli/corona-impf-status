@@ -17,7 +17,7 @@ Daily Json Structure
  */
 
 data.vaccinesPerDay = daily.map(value => value.Erstimpfung).filter(value => value)
-data.vaccinesPerDay = data.vaccinesPerDay.slice(0, data.vaccinesPerDay.length - 3)
+data.vaccinesPerDay = data.vaccinesPerDay.slice(0, data.vaccinesPerDay.length - 1)
 
 data.secondVaccinesPerDay = daily.map(value => value.Zweitimpfung).filter(value => value)
 data.secondVaccinesPerDay = data.secondVaccinesPerDay.slice(0, data.secondVaccinesPerDay.length - 3)
