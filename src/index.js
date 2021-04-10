@@ -78,7 +78,7 @@ function render() {
                 {
                     data: data.vaccinesPerDay.map(value => sufficientVaccinationNumber),
                     borderColor: 'rgba(191,231,231,0.53)',
-                    label: 'Herendimmunität',
+                    label: 'Herdenimmunität',
                     fill: false
                 }]
         },
