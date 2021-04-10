@@ -16,21 +16,21 @@
     font-family: 'Source Serif Pro', serif;
   }
 
-  #main {
+  main {
     text-align: left;
     font-size: x-large;
   }
 
-  #main > p {
+  main > p {
     line-height: 2;
   }
 
-  #main > p > b {
+  main > p > b {
     text-decoration: underline;
     white-space: nowrap;
   }
 
-  #main > p > span {
+  main > p > span {
     white-space: nowrap;
   }
 
@@ -71,15 +71,13 @@
       geimpft, also dauert es zusätlich <b>{{ twelveWeeks }} Tage</b> bis die
       benötigte
       Zweitimpfzahl erreicht ist.
-      <span style="font-weight: 200; font-size: medium; text-align: right">
-    <br>
+    </p><span style="font-weight: 200; font-size: medium; text-align: right">
     ¹Sieben-Tages-Schnitt
     <br>
     ²70% Durchimpfung
     <br>
-   </main>
-</span>
-  </p>
+      </span>
+  </main>
   <br>
   <h2>Erstimpfungen pro Tag</h2>
   <canvas id="chart" width="800" height="400"></canvas>
