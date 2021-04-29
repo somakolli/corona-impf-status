@@ -19,8 +19,8 @@ Daily Json Structure
 data.vaccinesPerDay = daily.map(value => value['Begonnene Impfserie']).filter(value => value)
 data.vaccinesPerDay = data.vaccinesPerDay.slice(0, data.vaccinesPerDay.length - 1)
 
-data.secondVaccinesPerDay = daily.map(value => value['Vollständig geimpft']).filter(value => value)
-data.secondVaccinesPerDay = data.secondVaccinesPerDay.slice(0, data.secondVaccinesPerDay.length - 3)
+data.secondVaccinesPerDay = daily.map(value => value['Vollständig geimpft']).filter(value => value || value === 0)
+data.secondVaccinesPerDay = data.secondVaccinesPerDay.slice(0, data.secondVaccinesPerDay.length - 1)
 
 const startDate = daily[0].Datum;
 
