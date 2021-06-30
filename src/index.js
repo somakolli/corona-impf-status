@@ -13,8 +13,18 @@ Date.prototype.addDays = function (days) {
     return date;
 }
 
-const startDate = new Date(Date.parse(data.startDate));
-console.log(data.startDate)
+function parseDate(stringDate) {
+    const dateArray = stringDate.split('.');
+    console.log(dateArray);
+    let date = new Date();
+    date.setDate(Number.parseInt(dateArray[0]));
+    date.setMonth(Number.parseInt(dateArray[1]));
+    date.setFullYear(Number.parseInt(dateArray[2]));
+    return date;
+}
+
+const startDate = parseDate(data.startDate);
+console.log(startDate)
 console.log(data.lastUpdate)
 const population = data.population;
 const accumulator = (acc, current) => acc + current;
@@ -93,17 +103,15 @@ function render() {
         },
         options: {
             responsive: true,
-            plugins
-:
-    {
-        legend: {
-            position: 'bottom'
+            plugins:
+                {
+                    legend: {
+                        position: 'bottom'
+                    }
+                },
+            locale: 'de'
         }
-    }
-,
-    locale: 'de'
-}
-})
+    })
 }
 
 render()
