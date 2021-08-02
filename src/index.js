@@ -18,7 +18,7 @@ function parseDate(stringDate) {
     console.log(dateArray);
     let date = new Date();
     date.setDate(Number.parseInt(dateArray[0]));
-    date.setMonth(Number.parseInt(dateArray[1]));
+    date.setMonth(Number.parseInt(dateArray[1]) - 1);
     date.setFullYear(Number.parseInt(dateArray[2]));
     return date;
 }
