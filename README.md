@@ -4,3 +4,4 @@
 ## [Website](https://corona-impf-status.de)
 
 Build with ```yarn build``` and serve dist.
+This website will show the current vaccination status for germany.
